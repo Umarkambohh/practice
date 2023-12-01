@@ -31,21 +31,25 @@ export default defineComponent({
 
 <!-- dropdown start -->
 <template>
+    <select-dropdown />
     <dropdown />
 </template>
 <script>
 import { defineComponent, ref } from "vue";
+import SelectDropdown from "./components/SelectDropdown.vue";
 import Dropdown from "./components/Dropdown.vue";
 
 export default defineComponent({
     name: "Parent",
     components: {
+        SelectDropdown,
         Dropdown,
     },
     setup() {
 
         return {
-            Dropdown,
+            SelectDropdown,
+            Dropdown
         }
     }
 })
