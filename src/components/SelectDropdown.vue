@@ -1,5 +1,5 @@
 <template>
-    <div class="dropdown-wrapper" ref="dropdown">
+    <div class="select-dropdown-wrapper" ref="dropdown">
         <div class="dropdown-selected-option" @click="showDropdown">
             {{ mappedSelectedOption }}
         </div>
@@ -66,7 +66,7 @@ export default defineComponent({
 });
 </script>
 <style lang="scss">
-.dropdown-wrapper {
+.select-dropdown-wrapper {
     width: 300px;
 }
 

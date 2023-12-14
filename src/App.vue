@@ -33,24 +33,23 @@ export default defineComponent({
 <template>
     <select-dropdown />
     <dropdown />
+    <ImageUpload />
 </template>
 <script>
 import { defineComponent, ref } from "vue";
 import SelectDropdown from "./components/SelectDropdown.vue";
 import Dropdown from "./components/Dropdown.vue";
+import ImageUpload from "./components/ImageUpload.vue";
 
 export default defineComponent({
     name: "Parent",
     components: {
         SelectDropdown,
         Dropdown,
+        ImageUpload,
     },
     setup() {
-
-        return {
-            SelectDropdown,
-            Dropdown
-        }
+        return {}
     }
 })
 
