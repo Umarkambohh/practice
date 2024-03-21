@@ -31,25 +31,53 @@ export default defineComponent({
 
 <!-- dropdown start -->
 <template>
-    <select-dropdown />
-    <dropdown />
-    <ImageUpload />
+    <!-- <select-dropdown /> -->
+    <select-filterable :source="countries" @valueToParent="recivedFromChild" />
+    <h1>Value Form Child: {{ recivedValue }}</h1>
+    <!-- <dropdown /> -->
+    <!-- <ImageUpload /> -->
 </template>
 <script>
 import { defineComponent, ref } from "vue";
-import SelectDropdown from "./components/SelectDropdown.vue";
-import Dropdown from "./components/Dropdown.vue";
-import ImageUpload from "./components/ImageUpload.vue";
+// import SelectDropdown from "@/components/SelectDropdown.vue";
+import SelectFilterable from "@/components/SelectFilterable.vue";
+// import Dropdown from "./components/Dropdown.vue";
+// import ImageUpload from "./components/ImageUpload.vue";
 
 export default defineComponent({
     name: "Parent",
     components: {
-        SelectDropdown,
-        Dropdown,
-        ImageUpload,
+        // SelectDropdown,
+        SelectFilterable,
+        // Dropdown,
+        // ImageUpload,
     },
     setup() {
-        return {}
+        const recivedValue = ref('');
+
+        const countries = ref([
+            {
+                name:'algeria',
+            },
+            {
+                name:'pakistan',
+            },
+            {
+                name:'america',
+            },
+            {
+                name:'india',
+            },
+        ])
+
+        const recivedFromChild = (value) => {
+            recivedValue.value = value;``
+        }
+        return {
+            countries,
+            recivedValue,
+            recivedFromChild,
+        }
     }
 })
 
