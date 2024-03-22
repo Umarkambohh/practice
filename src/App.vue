@@ -32,10 +32,11 @@ export default defineComponent({
 <!-- dropdown start -->
 <template>
     <!-- <select-dropdown /> -->
-    <select-filterable :source="countries" @valueToParent="recivedFromChild" />
-    <h1>Value Form Child: {{ recivedValue }}</h1>
+    <!-- <select-filterable :source="countries" @valueToParent="recivedFromChild" /> -->
+    <!-- <h1>Value Form Child: {{ recivedValue }}</h1> -->
     <!-- <dropdown /> -->
     <!-- <ImageUpload /> -->
+    <pinia />
 </template>
 <script>
 import { defineComponent, ref } from "vue";
@@ -43,14 +44,16 @@ import { defineComponent, ref } from "vue";
 import SelectFilterable from "@/components/SelectFilterable.vue";
 // import Dropdown from "./components/Dropdown.vue";
 // import ImageUpload from "./components/ImageUpload.vue";
+import Pinia from "@/components/Pinia.vue";
 
 export default defineComponent({
     name: "Parent",
     components: {
         // SelectDropdown,
-        SelectFilterable,
+        // SelectFilterable,
         // Dropdown,
         // ImageUpload,
+        Pinia,
     },
     setup() {
         const recivedValue = ref('');
