@@ -37,8 +37,8 @@ export default defineComponent({
     <!-- <dropdown /> -->
     <!-- <ImageUpload /> -->
     <!-- <pinia /> -->
-
-    <h1 v-show="showHeading">This is heading</h1>
+    <!-- <accordion /> -->
+    <test />
 </template>
 <script>
 import { defineComponent, ref } from "vue";
@@ -47,6 +47,8 @@ import SelectFilterable from "@/components/SelectFilterable.vue";
 // import Dropdown from "./components/Dropdown.vue";
 // import ImageUpload from "./components/ImageUpload.vue";
 // import Pinia from "@/components/Pinia.vue";
+// import Accordion from "@/components/Accordion.vue";
+import Test from "@/components/Test.vue";
 
 export default defineComponent({
     name: "Parent",
@@ -56,27 +58,29 @@ export default defineComponent({
         // Dropdown,
         // ImageUpload,
         // Pinia,
+        // Accordion,
+        Test,
     },
     setup() {
         const recivedValue = ref('');
         const showHeading = ref(true)
         const countries = ref([
             {
-                name:'algeria',
+                name: 'algeria',
             },
             {
-                name:'pakistan',
+                name: 'pakistan',
             },
             {
-                name:'america',
+                name: 'america',
             },
             {
-                name:'india',
+                name: 'india',
             },
         ])
 
         const recivedFromChild = (value) => {
-            recivedValue.value = value;``
+            recivedValue.value = value; ``
         }
         return {
             countries,
