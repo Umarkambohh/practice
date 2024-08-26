@@ -1,31 +1,41 @@
 <template>
-    <div v-for="item in items">
-        <h1>{{ item.headng}}</h1>
-        <p>{{ item.para}}</p>
-        <img :src="item.img" height="200" width="200" alt="">
-
-        <button @click="add(item)">add</button>
-    </div>
+  <div class="py-16">
+    <v-slider v-model="values" :start="configs.start" :step="configs.step" :connect="configs.connect"
+      :range="configs.range" :pips="configs.pips"></v-slider>
+  </div>
 </template>
 
 <script>
-import { ref } from "vue";
+import 'nouislider-vue3/css';
+import VSlider from 'nouislider-vue3';
+
 export default {
-    setup() {
-        const items = ref([
-            {
-                headng: 'this is heading',
-                para: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, magni.',
-                img: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
-            }
-        ])
-        const add = (item) => {
-            console.log(item);
-        }
-        return {
-            add,
-            items,
-        }
+  components: {
+    VSlider,
+  },
+
+  data() {
+    return {
+      values: 1,
+      configs: {
+        start: 1,
+        step: 1,
+        connect: true,
+        range: {
+          min: 1,
+          max: 10,
+        },
+        pips: {
+          mode: 'steps',
+          density: 10,  // Controls the density of the pips
+          format: {
+            to: function (value) {
+              return value.toFixed(0);  // Customize the format of the pip labels
+            },
+          },
+        },
+      },
     }
+  },
 }
 </script>

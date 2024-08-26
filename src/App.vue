@@ -39,9 +39,11 @@ export default defineComponent({
     <!-- <pinia /> -->
     <!-- <accordion /> -->
     <test />
+    <h1 v-if="heading">this is text</h1>
+    <button @click="toggle">toogle</button>
 </template>
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, onBeforeMount, onBeforeUnmount, onUpdated, ref } from "vue";
 // import SelectDropdown from "@/components/SelectDropdown.vue";
 import SelectFilterable from "@/components/SelectFilterable.vue";
 // import Dropdown from "./components/Dropdown.vue";
@@ -63,7 +65,17 @@ export default defineComponent({
     },
     setup() {
         const recivedValue = ref('');
-        const showHeading = ref(true)
+        const showHeading = ref(true);
+        const heading = ref(true)
+
+        const toggle = () => {
+            heading.value = !heading.value;
+        }
+
+        onUpdated(() => {
+            console.log("complete");
+        })
+
         const countries = ref([
             {
                 name: 'algeria',
@@ -87,6 +99,8 @@ export default defineComponent({
             recivedValue,
             recivedFromChild,
             showHeading,
+            heading,
+            toggle,
         }
     }
 })
